@@ -1,0 +1,6 @@
+
+*.json
+.idea/*
+.vscode/*
+
+app/standalone/debug
