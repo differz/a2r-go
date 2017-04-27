@@ -94,7 +94,7 @@ func (conf *Configuration) Create() error {
 		"HelpDeskServer"  : "192.168.0.1",
 		"HelpDeskUser"    : "",
 		"HelpDeskPassword": "",
-	    "HelpDeskDatabase": "",
+		"HelpDeskDatabase": "",
 		"redmineserver"   : "192.168.0.22",
 		"RedmineKey"      : "70d0affd9bc31f5ea60d6cf15483318ca9a2a8db",
 		"InputMethod"     : "CDR",
