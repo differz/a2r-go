@@ -4,3 +4,4 @@
 .vscode/*
 
 app/standalone/debug
+app/service/debug
