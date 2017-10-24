@@ -64,7 +64,11 @@ func (p *Store) Get() error {
 // Set data to first row
 func (p *Store) Set(lastID int64, lastUniqueID string) error {
 
-	db, err := sql.Open("mysql", "a2r:1111@tcp(opensun:3306)/asterisk?charset=utf8")
+	cfg := config.New()
+
+	connectionString := "" + cfg.HelpDeskUser + ":" + cfg.HelpDeskPassword + "@tcp(" + cfg.HelpDeskServer + ":3306)/" + cfg.HelpDeskDatabase + "?charset=utf8"
+	db, err := sql.Open("mysql", connectionString)
+
 	if err != nil {
 		log.Fatal(err)
 	}
