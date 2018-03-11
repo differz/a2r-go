@@ -33,7 +33,7 @@ func NewTimeEntry(projectID int, spentON string, hours float64, comments string)
 	return &t
 }
 
-// TimeEntryString prepear json string for POST
+// TimeEntryString prepare json string for POST
 func (t *TimeEntry) TimeEntryString() string {
 
 	ret := `{ "time_entry": {
