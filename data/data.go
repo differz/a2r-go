@@ -50,11 +50,9 @@ var (
 
 // NewProjectTable return pointer to global project table
 func NewProjectTable() *[]ProjectTable {
-
 	ptOnce.Do(func() {
 		pt = &[]ProjectTable{}
 	})
-
 	return pt
 }
 

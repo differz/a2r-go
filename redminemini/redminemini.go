@@ -19,9 +19,7 @@ type TimeEntry struct {
 	comments   string
 }
 
-var (
-	t TimeEntry
-)
+var t TimeEntry
 
 // NewTimeEntry init TimeEntry struct
 func NewTimeEntry(projectID int, spentON string, hours float64, comments string) *TimeEntry {
@@ -29,21 +27,18 @@ func NewTimeEntry(projectID int, spentON string, hours float64, comments string)
 	t.spentON = spentON
 	t.hours = hours
 	t.comments = comments
-
 	return &t
 }
 
 // TimeEntryString prepare json string for POST
 func (t *TimeEntry) TimeEntryString() string {
-
-	ret := `{ "time_entry": {
+	return `{ "time_entry": {
         "project_id": ` + fmt.Sprintf("%d", t.projectID) + `,
         "spent_on": "` + t.spentON + `",
         "hours": ` + fmt.Sprintf("%.2f ", t.hours) + `,
         "activity_id": 11,
         "comments": "` + t.comments + `" }
 }`
-	return ret
 }
 
 // CreateTimeEntry creates time entry over API
@@ -58,7 +53,6 @@ func (t *TimeEntry) TimeEntryString() string {
 //    201 Created: time entry was created
 //    422 Unprocessable Entity: time entry was not created due to validation failures (response body contains the error messages)
 func (t *TimeEntry) CreateTimeEntry() bool {
-
 	cfg := config.New()
 
 	res := "/time_entries.json"

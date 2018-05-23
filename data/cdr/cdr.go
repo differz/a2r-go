@@ -96,7 +96,6 @@ func Get() (data.In, error) {
 				timeEnt := redminemini.NewTimeEntry(pID2, calldate3, billhour, messageFormat)
 				timeEnt.CreateTimeEntry()
 				_ = timeEnt
-
 				break
 			}
 		}

@@ -1,4 +1,3 @@
-// Package manager ...
 package manager
 
 import (
@@ -39,21 +38,15 @@ func (m Manager) Register(name string, factory InputMethod) {
 
 // Create ...
 func (m Manager) Create() (data.In, error) {
-
 	cfg := config.New()
-
 	engineName := cfg.InputMethod
-	//engineName.Valid()
-
 	engineFactory, ok := m.Factories[engineName]
 	if !ok {
-		// Factory does not exist
 		available := make([]string, len(m.Factories))
-		for k := range m.Factories { ///+?
+		for k := range m.Factories {
 			available = append(available, k)
 		}
 		return nil, fmt.Errorf("Invalid Datastore name. Must be one of: %s", strings.Join(available, ", "))
 	}
-
 	return engineFactory()
 }

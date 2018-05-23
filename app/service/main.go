@@ -14,7 +14,6 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-
 	fmt.Fprintf(w, "Server request, URL %s", r.URL.Path[1:])
 
 	cfg := config.New()
@@ -23,15 +22,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 	phonebook.Get()
-
 	manager := manager.New()
-
 	store, err := manager.Create()
 	if err != nil {
 		log.Printf("Error: %v", err)
 		return
 	}
-
 	_ = store
 }
 
